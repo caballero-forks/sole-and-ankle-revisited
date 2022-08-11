@@ -82,7 +82,6 @@ const XiconWrapper = styled.div`
   align-self: flex-end;
 `;
 
-
 const MenuNav = styled.nav`
   display: flex;
   flex-direction: column;
