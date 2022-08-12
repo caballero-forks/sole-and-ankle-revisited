@@ -22,16 +22,17 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">Rebajas</NavLink>
+          <NavLink href="/new">Nuevas Ofertas</NavLink>
+          <NavLink href="/men">Hombres</NavLink>
+          <NavLink href="/women">Mujeres</NavLink>
+          <NavLink href="/kids">Niños</NavLink>
+          <NavLink href="/collections">Colecciones</NavLink>
+          <NavLink href="/collections">Primavera</NavLink>
         </Nav>
         <NavIcons>
           <Icon id="shopping-bag" strokeWidth={2} />
@@ -53,6 +54,8 @@ const Header = () => {
 
 
 const MainHeader = styled.div`
+  overflow: scroll;
+  overflow-y: hidden;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
@@ -71,8 +74,14 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
-  margin: 0px 48px;
+  gap: clamp( 
+    1rem,
+    3vw - 1rem,
+    5rem
+  );
+  /* margin: 0px 48px; */
+  // margin-right: 0;
+  white-space: nowrap;
 
   @media ${QUERIES.tabletAndDown} {
     display: none; 
@@ -98,6 +107,15 @@ const MenuButtonWrapper = styled.button`
   border: none; 
   background-color: transparent;
 `
+
+const LogoWrapper = styled.div`
+  flex: 1;
+  margin-right: 48px;
+
+  @media ${QUERIES.tabletAndDown} {
+    flex: 0;
+  }
+`;
 
 const Side = styled.div`
   flex: 1;
