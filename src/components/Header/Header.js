@@ -22,16 +22,17 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">Rebajas</NavLink>
+          <NavLink href="/new">Nuevas Ofertas</NavLink>
+          <NavLink href="/men">Hombres</NavLink>
+          <NavLink href="/women">Mujeres</NavLink>
+          <NavLink href="/kids">Niños</NavLink>
+          <NavLink href="/collections">Colecciones</NavLink>
+          <NavLink href="/collections">Primavera</NavLink>
         </Nav>
         <NavIcons>
           <Icon id="shopping-bag" strokeWidth={2} />
@@ -53,10 +54,12 @@ const Header = () => {
 
 
 const MainHeader = styled.div`
+  overflow: auto;
+  //overflow-y: hidden;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
+  //height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndDown} {
@@ -71,8 +74,13 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp( 
+    1rem,
+    9.2vw - 4.5rem,
+    3.5rem
+  );
   margin: 0px 48px;
+  white-space: nowrap;
 
   @media ${QUERIES.tabletAndDown} {
     display: none; 
@@ -99,11 +107,19 @@ const MenuButtonWrapper = styled.button`
   background-color: transparent;
 `
 
+const LogoWrapper = styled.div`
+  flex: 1;
+
+  @media ${QUERIES.tabletAndDown} {
+    flex: revert;
+  }
+`;
+
 const Side = styled.div`
   flex: 1;
 
   @media ${QUERIES.tabletAndDown} {
-    flex: 0;
+    display: none;
   }
 `;
 
