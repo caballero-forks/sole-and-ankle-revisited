@@ -54,12 +54,12 @@ const Header = () => {
 
 
 const MainHeader = styled.div`
-  overflow: scroll;
-  overflow-y: hidden;
+  overflow: auto;
+  //overflow-y: hidden;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
+  //height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndDown} {
@@ -76,11 +76,10 @@ const Nav = styled.nav`
   display: flex;
   gap: clamp( 
     1rem,
-    3vw - 1rem,
-    5rem
+    9.2vw - 4.5rem,
+    3.5rem
   );
-  /* margin: 0px 48px; */
-  // margin-right: 0;
+  margin: 0px 48px;
   white-space: nowrap;
 
   @media ${QUERIES.tabletAndDown} {
@@ -110,10 +109,9 @@ const MenuButtonWrapper = styled.button`
 
 const LogoWrapper = styled.div`
   flex: 1;
-  margin-right: 48px;
 
   @media ${QUERIES.tabletAndDown} {
-    flex: 0;
+    flex: revert;
   }
 `;
 
@@ -121,7 +119,7 @@ const Side = styled.div`
   flex: 1;
 
   @media ${QUERIES.tabletAndDown} {
-    flex: 0;
+    display: none;
   }
 `;
 
